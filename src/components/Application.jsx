@@ -36,6 +36,16 @@ class Application extends Component {
     ]
   };
 
+  componentDidMount = () => {
+    const posts = firestore
+      .collection("posts")
+      .get()
+      .then(snapshot => {
+        console.log({ snapshot });
+      });
+    console.log({ posts });
+  };
+
   handleCreate = post => {
     const { posts } = this.state;
     this.setState({ posts: [post, ...posts] });
