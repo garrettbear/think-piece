@@ -18,3 +18,9 @@
 
 - [ ] (front end) Delete all the posts - 1 should remain due to id
 - [ ] Delete the ID field on the last post that remains
+
+### Video 22
+
+- [ ] Set up sign in method
+- [ ] Enable Google
+- [ ] Enable Email/Password
