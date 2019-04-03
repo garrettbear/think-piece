@@ -2,6 +2,6 @@
 
 ### Video 9
 
-[ ] Enable Database (Start in Test Mode)
+- [ ] Enable Database (Start in Test Mode)
 
-### Video 10
+### Video 11

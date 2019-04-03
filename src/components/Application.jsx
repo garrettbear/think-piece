@@ -36,14 +36,15 @@ class Application extends Component {
     ]
   };
 
-  componentDidMount = () => {
-    const posts = firestore
-      .collection("posts")
-      .get()
-      .then(snapshot => {
-        console.log({ snapshot });
-      });
-    console.log({ posts });
+  componentDidMount = async () => {
+    const snapshot = await firestore.collection("posts").get();
+
+    snapshot.forEach(doc => {
+      const id = doc.id;
+      const data = doc.data();
+
+      console.log({ id, data });
+    });
   };
 
   handleCreate = post => {
