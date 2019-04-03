@@ -22,40 +22,13 @@ class Application extends Component {
     this.unsubscribe();
   };
 
-  handleCreate = async post => {
-    const docRef = await firestore.collection("posts").add(post);
-    const doc = await docRef.get();
-
-    const newPost = {
-      id: doc.id,
-      ...doc.data()
-    };
-
-    const { posts } = this.state;
-    this.setState({ posts: [newPost, ...posts] });
-  };
-
-  handleRemove = async id => {
-    const allPosts = this.state.posts;
-
-    const posts = allPosts.filter(post => id !== post.id);
-
-    await firestore.doc(`posts/${id}`).delete();
-
-    this.setState({ posts });
-  };
-
   render() {
     const { posts } = this.state;
 
     return (
       <main className="Application">
         <h1>Think Piece</h1>
-        <Posts
-          posts={posts}
-          onCreate={this.handleCreate}
-          onRemove={this.handleRemove}
-        />
+        <Posts posts={posts} />
       </main>
     );
   }
