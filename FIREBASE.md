@@ -24,3 +24,22 @@
 - [ ] Set up sign in method
 - [ ] Enable Google
 - [ ] Enable Email/Password
+
+## Video 29
+
+- [ ] Rules for Database
+
+```
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /posts/{postId} {
+      allow read;
+      allow create: if request.auth.uid != null && request.resource.data.title != null;
+      allow update, delete: if request.auth.uid == resource.data.user.uid;
+    }
+  }
+}
+
+```
+
+- [ ] Delete collection in Database to clean up all the posts
