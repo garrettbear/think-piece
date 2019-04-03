@@ -12,10 +12,14 @@ class Application extends Component {
   unsubscribe = null;
 
   componentDidMount = async () => {
-    this.unsubscribe = firestore.collection("posts").onSnapshot(snapshot => {
-      const posts = snapshot.docs.map(collectIdsAndData);
-      this.setState({ posts });
-    });
+    this.unsubscribe = firestore
+      .collection("posts")
+      .orderBy("createdAt", "desc")
+      .onSnapshot(snapshot => {
+        // NEW
+        const posts = snapshot.docs.map(collectIdsAndData);
+        this.setState({ posts });
+      });
   };
 
   componentWillUnmount = () => {
