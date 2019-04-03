@@ -11,5 +11,5 @@
 - Field: title Type: string Value: Some random text
 - Field: content Type: string Value: Some more random text
 - Field: user Type: map
-  ⋅⋅* Field: uid Type: string Value: 123
-  ⋅⋅* Field: displayName Type: string Value: NameNameName
+  ⋅⋅⋅ Field: uid Type: string Value: 123
+  ⋅⋅⋅Field: displayName Type: string Value: NameNameName
