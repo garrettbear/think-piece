@@ -1,21 +1,15 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/auth";
+import config from "./a-config.json";
 
-const config = {
-  apiKey: "AIzaSyAaJL3nisi6lHTlDQq6-Vl6gzQ2zc4sDZ0",
-  authDomain: "think-piece-live-2.firebaseapp.com",
-  databaseURL: "https://think-piece-live-2.firebaseio.com",
-  projectId: "think-piece-live-2",
-  storageBucket: "think-piece-live-2.appspot.com",
-  messagingSenderId: "401535693367"
-};
 firebase.initializeApp(config);
 
 export const firestore = firebase.firestore();
 
-// No longer need this with the Firebase update 😇
-// firestore.settings({ timestampsInSnapshots: true });
-
-window.firebase = firebase; //for dev purposes
+export const auth = firebase.auth();
+export const provider = new firebase.auth.GoogleAuthProvider();
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signOut = () => auth.signOut();
 
 export default firebase;
