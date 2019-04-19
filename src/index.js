@@ -7,11 +7,15 @@ import Application from "./components/Application";
 import PostProvider from "./providers/PostProvider";
 import UserProvider from "./providers/UserProvider";
 
+import { BrowserRouter as Router } from "react-router-dom";
+
 render(
-  <UserProvider>
-    <PostProvider>
-      <Application />
-    </PostProvider>
-  </UserProvider>,
+  <Router>
+    <UserProvider>
+      <PostProvider>
+        <Application />
+      </PostProvider>
+    </UserProvider>
+  </Router>,
   document.getElementById("root")
 );
